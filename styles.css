@@ -1,0 +1,186 @@
+/* ---- Theme variables (overridden per-sound via JS) ---- */
+:root {
+    --bg-start: #ffe4e1;
+    --bg-end: #ffd1dc;
+    --accent: #cc3366;
+    --accent-dark: #a82a55;
+    --accent-deep: #8b0000;
+    --accent-soft: #f5b7c5;
+    --accent-disabled: #d9a8b6;
+    --text: #4a2a3a;
+    --text-muted: #8b4a5c;
+    --shadow: rgba(204, 51, 102, 0.15);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    transition: background 0.5s ease;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px var(--shadow);
+}
+
+h1 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+}
+
+.critter {
+    font-size: 120px;
+    display: inline-block;
+    transition: transform 0.1s ease-out;
+    user-select: none;
+    cursor: pointer;
+}
+
+.critter.active {
+    transform: scale(1.25) rotate(-3deg);
+}
+
+.critter.accent {
+    filter: drop-shadow(0 0 12px var(--accent));
+}
+
+.beat-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0;
+    min-height: 20px;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    transition: all 0.1s;
+}
+
+.dot.active {
+    background: var(--accent);
+    transform: scale(1.3);
+}
+
+.dot.accent-dot.active {
+    background: var(--accent-deep);
+    box-shadow: 0 0 12px var(--accent);
+}
+
+#bpmDisplay {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.bpm-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.bpm-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.bpm-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    width: 100%;
+    max-width: 350px;
+    accent-color: var(--accent);
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 5px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.05s;
+    font-weight: 600;
+}
+
+button:hover { background: var(--accent-dark); }
+button:active { transform: scale(0.96); }
+button:disabled { background: var(--accent-disabled); cursor: not-allowed; }
+
+.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+.secondary:hover { background: var(--accent); color: white; }
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.field label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid var(--accent-soft);
+    background: white;
+    font-size: 14px;
+}
+
+.tempo-label {
+    font-style: italic;
+    color: var(--text-muted);
+    min-height: 20px;
+}
+
+.hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 15px;
+}
